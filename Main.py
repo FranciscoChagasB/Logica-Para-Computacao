@@ -47,15 +47,15 @@ def extract_schedule(model, variables, course_names):
 
     return schedule
 
-# Example input
+#Entradas de exemplo
 course_names = ['Java', 'Sql', 'Python', 'C#']
 num_slots = 3
 pairs = [(1, 2), (2, 3), (2, 4), (3, 4), (1, 3)]
 
-# Create the schedule formula
+#Criando as fórmulas
 solver, variables = create_schedule_formula(range(1, len(course_names) + 1), num_slots, pairs)
 
-# Solve the formula
+#Solucionando o exemplo
 model = solve_schedule(solver)
 
 if model is not None:
