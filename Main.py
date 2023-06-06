@@ -1,3 +1,4 @@
+#Z3, also known as the Z3 Theorem Prover, is a satisfiability modulo theories (SMT) solver developed by Microsoft.
 from z3 import *
 
 def create_schedule_formula(courses, num_slots, pairs):
@@ -48,9 +49,14 @@ def extract_schedule(model, variables, course_names):
     return schedule
 
 #Entradas de exemplo
-course_names = ['Java', 'Sql', 'Python', 'C#']
+#course_names = ['HTML', 'PHP', 'MySQL', 'Swift']
+#num_slots = 3
+#pairs = [(1, 2), (2, 3), (2, 4), (3, 4), (1, 3), (1, 4)]
+
+#Exemplo dado em sala
+course_names = ['1', '2', '3', '4', '5', '6']
 num_slots = 3
-pairs = [(1, 2), (2, 3), (2, 4), (3, 4), (1, 3)]
+pairs = [(1, 2), (2, 3), (2, 5), (3, 4), (3, 6), (5, 6)]
 
 #Criando as fórmulas
 solver, variables = create_schedule_formula(range(1, len(course_names) + 1), num_slots, pairs)
