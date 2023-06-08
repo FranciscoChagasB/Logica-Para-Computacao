@@ -1,0 +1,32 @@
+Dado determinados cursos: ['Curso1', 'Curso2', 'Curso3']
+Dado determinados slots: ['Slot1', 'Slot2', 'Slot3']
+Restrições:
+1. Cada minicurso deve ser ofertado em pelo menos um slot.
+2. Cada minicurso deve ser ofertado em no máximo um slot.
+3. Minicursos com inscrições em comum não podem ser ofertados no mesmo slot.
+
+Modelando o problema temos:
+Variáveis:
+x_{i}{j}: x Sendo a variável definida, i Sendo o curso agendado e j Sendo o slot alocado.
+O valor verdadeiro indica que o curso i foi agendado no slot j.
+
+Restrição 1 - Cada minicurso deve ser ofertado em pelo menos um slot
+Dado i cursos e j slots definidos:
+[x1,1 ∨ x1,2 ∨ ... ∨ x1,j]
+[x2,1 ∨ x2,2 ∨ ... ∨ x2,j]
+[           ...          ]
+[xi,1 ∨ xi,2 ∨ ... ∨ xi,j]
+
+Restrição 2 - Cada minicurso deve ser ofertado em no máximo um slot:
+Dado i cursos e j slots definidos:
+[ X_{i,1} ∨  X_{i,2} ∨ ... ∨  X_{i,j}] 
+                    ∧ 
+[¬X_{i,1} ∨ ¬X_{i,2} ∨ ... ∨ ¬X_{i,j}]
+
+
+Restrição 3 - Minicursos com inscrições em comum não podem ser ofertados no mesmo slot:
+Dado uma restrição (i_1, i_2) e slot j:
+[¬xi_1,1 ∨ ¬xi_2,1  ]
+[¬xi_1,2 ∨ ¬xi_2,2  ]
+[       ...         ]
+[¬xi_1,j ∨ ¬xi_2,j  ]
